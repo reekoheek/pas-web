@@ -58,7 +58,7 @@ module.exports = {
                 } catch(e) {}
 
                 return manifest;
-            })
+            });
     },
 
     install: function(pack) {
@@ -78,5 +78,24 @@ module.exports = {
                     }
                 });
             }.bind(this));
+    },
+
+    up: function(pack) {
+        'use strict';
+
+        var port = this.app.options.p || 8081;
+
+        var bs = require('browser-sync').create('Web server');
+        bs.watch('*.html').on('change', bs.reload);
+
+        bs.watch('css/*.css', function (event, file) {
+            if (event === 'change') {
+                bs.reload('*.css');
+            }
+        });
+        bs.init({
+            server: true
+        });
+
     }
 };

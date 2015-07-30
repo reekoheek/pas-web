@@ -1,6 +1,6 @@
 {
   "name": "pas-web",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "pas web plugin",
   "main": "lib/index.js",
   "scripts": {
@@ -9,5 +9,6 @@
   "author": "Ganesha <reekoheek@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "browser-sync": "^2.7.1"
   }
 }
