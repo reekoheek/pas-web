@@ -86,9 +86,10 @@ module.exports = {
         var port = this.app.options.p || 8081;
 
         var bs = require('browser-sync').create('Web server');
-        bs.watch('*.html').on('change', bs.reload);
+        bs.watch('**/*.html').on('change', bs.reload);
+        bs.watch('**/*.js').on('change', bs.reload);
 
-        bs.watch('css/*.css', function (event, file) {
+        bs.watch('**/*.css', function (event, file) {
             if (event === 'change') {
                 bs.reload('*.css');
             }
